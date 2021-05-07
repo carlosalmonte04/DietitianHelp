@@ -2,7 +2,7 @@ class SessionsController < DeviseController
   prepend_before_action :require_no_authentication, only: [:new, :create]
   prepend_before_action :allow_params_authentication!, only: :create
   prepend_before_action :verify_signed_out_user, only: :destroy
-  prepend_before_action only: [:create, :destroy] { request.env["devise.skip_timeout"] = true }
+  # prepend_before_action only: [:create, :destroy] { request.env["devise.skip_timeout"] = true }
 
   # GET /resource/sign_in
   def new
@@ -12,8 +12,13 @@ class SessionsController < DeviseController
 
   # POST /resource/sign_in
   def create 
-    self.resource = warden.authenticate!(auth_options)
-    sign_in(resource_name, resource)
+    user = User.find_for_authentication(username: params[:user][:username])
+    if user && user.valid_password?(params[:user][:password])
+      self.resource = warden.authenticate!(auth_options)
+      sign_in(resource_name, resource)
+    else
+      flash[:notice] = 'invalid credentials'
+    end
     redirect
   end
 
