@@ -4,7 +4,7 @@ ruby '2.7.0'
 gem 'rename'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', '~> 6.1.3.2'
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
 # Use SCSS for stylesheets
