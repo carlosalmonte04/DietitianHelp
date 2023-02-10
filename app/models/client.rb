@@ -6,6 +6,7 @@ class Client < ApplicationRecord
 	has_many :labs
 	has_many :goals
 	has_many :nextevaluationnotes
+	before_validation :normalize_gender, on: :create
 
 	def medical_record
 		@all_docs = {
@@ -22,5 +23,11 @@ class Client < ApplicationRecord
 	def name
 		self.firstname + " " + self.lastname
 	end
+
+	private
 	
+	def normalize_gender
+		self.gender = gender.downcase
+	end
+
 end
