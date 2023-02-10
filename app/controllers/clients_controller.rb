@@ -63,9 +63,6 @@ class ClientsController < ApplicationController
     @goals = @medical_history[:goals]
   end
 
-  def client_params1
-      
-  end
   # PATCH/PUT /clients/1
   # PATCH/PUT /clients/1.json
   def update

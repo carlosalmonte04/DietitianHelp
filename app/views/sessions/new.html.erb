@@ -20,7 +20,7 @@
             <div class="big-box text-left login-form" style="padding: 0 50px 120px; margin: -13px 0 0 0">
               <!-- SIGN IN FORM -->
                         <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {style: "position: absolute", remote: true}) do |f| %>
-          <%= devise_error_messages! %>
+            <%= render "devise/shared/error_messages", resource: resource %>
             <%= f.text_field :username, class: "form-control material", placeholder: "Username", id: "login", type: "text", value: "admin", autofocus: true, style: "margin:10px 20px 10px 0"%>
             <%= f.password_field :password, class: "form-control material", placeholder: "Password", id: "password", type: "password", autocomplete: "off", value: "password", style: "margin:10px 20px 10px 0"%>
           <div class="text-uppercase" style="margin:20px 0 10px 0">
@@ -43,7 +43,7 @@
               <div style="margin-left: 20%">
                 <!-- SIGN UP FORM -->
                 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {class: "", :id => "sign_up_user", :style => "display: block;position: absolute;width: 60%"}) do |f| %>
-                  <%= devise_error_messages! %>
+                  <%= render "devise/shared/error_messages", resource: resource %>
                   <%= f.text_field :username, class: "input-container form-control material", placeholder: "Username", id: "login", type: "text", autofocus: true%>
                   <%= f.password_field :password, class: "input-container form-control material", placeholder: "Password", id: "password", type: "password", autocomplete: "off"%>
                   <%= f.password_field :password_confirmation, class: "input-container form-control material", placeholder: "Password Confirmation", id: "passwordconfirm", autocomplete: "off" %>

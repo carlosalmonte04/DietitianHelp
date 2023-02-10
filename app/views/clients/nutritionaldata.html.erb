@@ -244,9 +244,10 @@
               <tbody>
                 <% @labs.attributes.each_with_index do |lab, idx| %>
                 <% next if ["id", "client_id", "date", "created_at", "updated_at"].include?(lab[0]) %>
-                <tr class=<%= idx.odd? ? "active" : "" %>>
+                <tr class=<%= idx.odd? ? "active" : "inactive" %>>
                   <th><%= lab[0].to_sym %></th>
                   <th><%=f.text_field lab[0].to_sym %></th>
+                  # output range for normal_adults, either Male or Female: e.g., 35..50 g/L
                   <th style="font-size: 16px;"><%= Lab.ranges[lab[0].to_sym][:normal_adults][@client.gender.to_sym].join('').gsub("..", " - ") + " " + Lab.ranges[lab[0].to_sym][:metric]%></th>
                 </tr>
                 <% end %>
