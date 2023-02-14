@@ -18,7 +18,7 @@ I am solely responsible for this fullstack. Backend, data modeling, design, data
 
 ## dependencies 
 
--ruby 2.2.3
+-ruby 2.7.0
 
 
 -Rails 5.0.0
