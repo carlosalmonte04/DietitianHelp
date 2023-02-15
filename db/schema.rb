@@ -59,6 +59,12 @@ ActiveRecord::Schema.define(version: 2017_09_06_224416) do
     t.index ["client_id"], name: "index_fullassessments_on_client_id"
   end
 
+  create_table "diets", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "goals", force: :cascade do |t|
     t.integer "client_id"
     t.string "name"
