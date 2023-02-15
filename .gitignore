@@ -24,3 +24,7 @@
 /config/application.yml
 /config/secrets.yml
 .env
+
+
+# Ignore automatically generated assets
+/public
