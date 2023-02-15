@@ -8,8 +8,8 @@
 
 <!-- PAGE FOR CLIENT ID = <%= current_client %> -->
 <!-- CREATE JAVASCRIPT OBJECT TO SPREAD AROUND ALL JAVASCRIPT FILES -UNABLE TO RENDER RUBY INSTANCE ON JS FILES -->
-<div id="client" <%= @client.attributes.map { |attribute, value| "data-#{attribute}=#{value}" }.join(" ") %> style="display: none">
-	
+<div id="client" style="display: none">
+	<%= @client.attributes.to_json %>
 </div>
 <!-- 
 FULL PAGE DIVIDED INTO:

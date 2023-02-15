@@ -8,7 +8,7 @@
  */
 
 $(document).ready(function () {
-  window.client = ((client) => $("#client").data())();
+  window.client = JSON.parse($("#client")[0].innerText);
 
   window.heightInput = $("#client-height-input");
   window.genderInput = $("#client-gender-input");
@@ -148,7 +148,7 @@ function rchart0() {
 
   let lossesInDays = [];
   if (significantWeightLoss()) {
-    weightDifferenceMessage += "Significant Weight Loss for the past ";
+    weightDifferenceMessage += "significant weight loss for the past ";
     if (significantLossOneMonth) {
       lossesInDays.push("30");
     }
@@ -167,7 +167,7 @@ function rchart0() {
 
   let gains = [];
   if (significantWeightGain()) {
-    weightDifferenceMessage += "Significant Weight Gain for the past ";
+    weightDifferenceMessage += "significant weight gain for the past ";
     if (significantGainOneMonth) {
       gains.push("30");
     }
@@ -198,7 +198,7 @@ function rchart0() {
 
 // TYPE DIET ON ASSESSMENT
 function diet() {
-  $("#cdietspan")[0].innerText = $("#current-diet-input").val();
+  $("#cdietspan")[0].innerText = $("#client-currentdiet-input").val();
   $(function () {
     $("#cdietspan").typed({
       strings: [client.cdiet],
