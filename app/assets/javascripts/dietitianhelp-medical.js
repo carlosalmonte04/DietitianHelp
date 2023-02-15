@@ -198,7 +198,7 @@ function rchart0() {
 
 // TYPE DIET ON ASSESSMENT
 function diet() {
-  $("#cdietspan")[0].innerText = $("#current-diet-input").val();
+  $("#cdietspan")[0].innerText = $("#client-currentdiet-input").val();
   $(function () {
     $("#cdietspan").typed({
       strings: [client.cdiet],
