@@ -8,7 +8,7 @@
  */
 
 $(document).ready(function () {
-  window.client = ((client) => $("#client").data())();
+  window.client = JSON.parse($("#client")[0].innerText);
 
   window.heightInput = $("#client-height-input");
   window.genderInput = $("#client-gender-input");
