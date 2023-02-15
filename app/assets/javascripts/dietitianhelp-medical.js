@@ -148,7 +148,7 @@ function rchart0() {
 
   let lossesInDays = [];
   if (significantWeightLoss()) {
-    weightDifferenceMessage += "Significant Weight Loss for the past ";
+    weightDifferenceMessage += "significant weight loss for the past ";
     if (significantLossOneMonth) {
       lossesInDays.push("30");
     }
@@ -167,7 +167,7 @@ function rchart0() {
 
   let gains = [];
   if (significantWeightGain()) {
-    weightDifferenceMessage += "Significant Weight Gain for the past ";
+    weightDifferenceMessage += "significant weight gain for the past ";
     if (significantGainOneMonth) {
       gains.push("30");
     }
