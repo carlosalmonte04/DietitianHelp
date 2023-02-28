@@ -39,10 +39,11 @@ $(document).ready(function () {
       item: function (data, escape) {
         if (data.firstname == undefined) {
           newClientName = data.text;
+          // TODO - client that is not created on backend should be removed from frontend data
           var newClientNameArr = newClientName.split(" ");
           $("#new-firstname-input").val(newClientNameArr[0]);
           $("#new-lastname-input").val(newClientNameArr[1]);
-          $("#new-client-form-container").show("fast");
+          $("#new-client-form-container").removeClass("hidden-form");
           return '<div class="item">' + escape(data.text) + "</div>";
         } else {
           return (
@@ -73,8 +74,10 @@ $(document).ready(function () {
         },
       });
     },
-    onChange: function () {
+    onChange: function (text) {
       if (isNaN(parseInt($("#select-beast-landsearch").val()))) {
+        $("#new-firstname-input").val(text.split(" ")[0]);
+        $("#new-lastname-input").val(text.split(" ")[1]);
         // IF ITEM IN SEARCH BAR IS INVALID (NaN) EXIT FUNCTION
         return false;
       } else {
